@@ -1,0 +1,16 @@
+name: Update Blog Posts
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs once per day
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update blog posts
+        uses: gautamkrishnar/blog-post-workflow@1.7.2
+        with:
+          feed_list: "https://nurmahmud.xyz/rss.xml"
